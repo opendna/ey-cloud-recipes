@@ -28,7 +28,7 @@ if ['solo', 'app_master', 'app', 'util'].include?(node[:instance_role])
     end
     
     # restart rails
-    execute "touch /data/#{app[:name]}/current/tmp/restart.txt"
+    # execute "touch /data/#{app[:name]}/current/tmp/restart.txt"
 
   end
 end
