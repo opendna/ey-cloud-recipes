@@ -20,7 +20,7 @@ if ['solo', 'app_master', 'app', 'util'].include?(node[:instance_role])
         :username => node[:users][0][:username],
         :password => node[:users][0][:password],
         :host => node[:db_host],
-        :slaves => node.environment.instances.select{|i| i["role"] =="db_slave"},
+        :slaves => node[:engineyard][:environment][:instances].select{|i| i["role"] =="db_slave"},
       })
     end
   end
