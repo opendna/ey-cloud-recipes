@@ -4,7 +4,7 @@ octopus:
     - production
   production:
   <% @slaves.each_with_index do |slave,i| %>
-    <%= "slave_#{i+1}" %>:
+    <%= "slave#{i+1}" %>:
       adapter: <%= @adapter %>
       database: '<%= @database %>'
       username: '<%= @username %>'
