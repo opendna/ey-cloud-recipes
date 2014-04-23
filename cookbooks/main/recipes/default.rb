@@ -1,4 +1,4 @@
-require_recipe "octopus"
+# require_recipe "octopus"
 
 #execute "testing" do
 #  command %Q{
