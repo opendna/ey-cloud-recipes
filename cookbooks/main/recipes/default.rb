@@ -108,7 +108,7 @@ require_recipe "database"
 # To install a Jenkins environment, uncomment below
 # include_recipe "jenkins"
 
-include_recipe "eventmachine"
+# include_recipe "eventmachine"
 
 #enable Extension modules for a given Postgresql database
 # if ['solo','db_master', 'db_slave'].include?(node[:instance_role])
