@@ -1,5 +1,8 @@
 # 
-require_recipe "octopus"
+# require_recipe "octopus"
+
+# customize sample.
+require_recipe "database"
 
 #execute "testing" do
 #  command %Q{
