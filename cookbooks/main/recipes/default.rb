@@ -1,6 +1,8 @@
 # 
 require_recipe "octopus"
 
+include_recipe "timezone"
+
 # customize sample.
 # require_recipe "database"
 
