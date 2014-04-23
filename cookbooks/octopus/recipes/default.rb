@@ -28,7 +28,3 @@ if ['solo', 'app_master', 'app', 'util'].include?(node[:instance_role])
     end
   end
 end
-
-ey_cloud_report "nginx" do 
-  message "create file, #{current_path}/config/shards.yml" 
-end
