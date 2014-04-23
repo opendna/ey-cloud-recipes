@@ -3,6 +3,9 @@
 # Recipe:: default
 #
 
+# variables
+current_path = "/data/#{app_name}/current"
+
 if ['solo', 'app_master', 'app', 'util'].include?(node[:instance_role])
   # for each application
   node[:engineyard][:environment][:apps].each do |app|
