@@ -7,11 +7,8 @@ if ['solo', 'app_master', 'app', 'util'].include?(node[:instance_role])
   # for each application
   node[:engineyard][:environment][:apps].each do |app|
 
-    # variables
-    current_path = "/data/#{app[:name]}/current"
-
     # create new shards.yml for octopus
-    template "#{current_path}/config/shards.yml" do
+    template "/data/#{app}/shared/config/shards.yml" do
       source 'shards.yml.erb'
       owner node[:users][0][:username]
       group node[:users][0][:username]
