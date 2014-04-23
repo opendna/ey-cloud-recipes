@@ -6,9 +6,9 @@ octopus:
   <% @slaves.each_with_index do |slave,i| %>
     <%= i == 0 ? "slave" : "slave_#{i}" %>:
       adapter: <%= @adapter %>
-      database: '<%= @dbname %>'
-      username: '<%= @dbuser %>'
-      password: '<%= @dbpass %>'
+      database: '<%= @database %>'
+      username: '<%= @username %>'
+      password: '<%= @password %>'
       host:     '<%= slave['private_hostname'] %>'
       reconnect: true
   <% end %>
