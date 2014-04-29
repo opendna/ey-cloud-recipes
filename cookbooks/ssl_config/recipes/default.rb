@@ -5,7 +5,7 @@
 
 if ['solo', 'app_master', 'app', 'util'].include?(node[:instance_role])
 
-  nginx_https_port = (meta = node.apps.detect {|a| a.metadata?(:nginx_https_port) } and meta.metadata?(:nginx_https_port)) || (node.solo? ? 443 : 444)
+  nginx_https_port = (meta = node[:engineyard][:environment][:apps].detect {|a| a.metadata?(:nginx_https_port) } and meta.metadata?(:nginx_https_port)) || (node.solo? ? 443 : 444)
 
   # for each application
   node[:engineyard][:environment][:apps].each do |app|
