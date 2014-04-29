@@ -23,9 +23,5 @@ if ['solo', 'app_master', 'app', 'util'].include?(node[:instance_role])
         :slaves => node[:engineyard][:environment][:instances].select{|i| i["role"] =="db_slave"},
       })
     end
-    
-    # restart rails
-    # execute "touch /data/#{app[:name]}/current/tmp/restart.txt"
-
   end
 end
