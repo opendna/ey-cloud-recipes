@@ -1,10 +1,7 @@
-# 
-require_recipe "octopus"
+# for rails, database master/slave
+include_recipe "octopus"
 
 include_recipe "timezone"
-
-# customize sample.
-# require_recipe "database"
 
 #execute "testing" do
 #  command %Q{
