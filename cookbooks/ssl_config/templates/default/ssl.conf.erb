@@ -1,4 +1,4 @@
-<%= p @node %>
+<%= @node.to_yaml %>
 
 server {
   listen <%= @https_bind_port %>;
