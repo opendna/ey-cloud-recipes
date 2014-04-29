@@ -1,7 +1,10 @@
+include_recipe "timezone"
+
+# for ssl config (nginx/passenger)
+include_recipe "ssl_config"
+
 # for rails, database master/slave
 include_recipe "octopus"
-
-include_recipe "timezone"
 
 #execute "testing" do
 #  command %Q{
