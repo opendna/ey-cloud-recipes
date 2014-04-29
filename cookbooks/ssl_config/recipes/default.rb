@@ -19,7 +19,7 @@ if ['solo', 'app_master', 'app', 'util'].include?(node[:instance_role])
       variables({
         :node => node,
         :https_bind_port => 444,
-        :server_names => app[:vhosts][1][:name].empty? ? [] : [app[:vhosts][1][:name]],
+        :server_names => node[:members],
         :app_name => app[:name],
         :app_type => app[:app_type],
       })
