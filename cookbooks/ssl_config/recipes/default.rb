@@ -10,9 +10,10 @@ if ['solo', 'app_master', 'app', 'util'].include?(node[:instance_role])
   # for each application
   node[:engineyard][:environment][:apps].each do |app|
     
-    if File.exist?("/data/nginx/ssl/#{app.name}.crt") && File.exist?("/data/nginx/ssl/#{app.name}.key")
-      # create /data/nginx/servers/#{app.name}.ssl.custom.conf
-      conf_file = "/data/nginx/servers/#{app[:name]}.ssl.custom.conf"
+    # create /data/nginx/servers/#{app[:name]}.ssl.custom.conf
+    conf_file = "/data/nginx/servers/#{app[:name]}.ssl.custom.conf"
+
+    if File.exist?("/data/nginx/ssl/#{app[:name]}.crt") && File.exist?("/data/nginx/ssl/#{app[:name]}.key")
       template conf_file do
         source 'ssl.conf.erb'
         owner node[:users][0][:username]
