@@ -9,6 +9,9 @@ if ['solo', 'app_master', 'app', 'util'].include?(node[:instance_role])
 
   # for each application
   node[:engineyard][:environment][:apps].each do |app|
+    
+    next unless File.exist? "/data/nginx/ssl/#{app.name}.crt"
+    next unless File.exist? "/data/nginx/ssl/#{app.name}.key"
 
     # create /data/nginx/servers/#{app.name}.ssl.custom.conf
     template "/data/nginx/servers/#{app[:name]}.ssl.custom.conf" do
