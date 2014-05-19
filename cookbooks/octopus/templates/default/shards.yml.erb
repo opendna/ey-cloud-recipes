@@ -3,12 +3,12 @@ octopus:
   environments:
     - production
   production:
-  <% @slaves.each_with_index do |slave,i| %>
-    <%= "slave#{i+1}" %>:
+<% @slaves.each_with_index do |slave,i| %>
+    <%= slave['name'] %>:
       adapter: <%= @adapter %>
       database: '<%= @database %>'
       username: '<%= @username %>'
       password: '<%= @password %>'
       host:     '<%= slave['private_hostname'] %>'
       reconnect: true
-  <% end %>
+<% end %>
