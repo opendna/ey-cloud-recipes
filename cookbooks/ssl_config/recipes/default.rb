@@ -12,6 +12,10 @@ if ['solo', 'app_master', 'app', 'util'].include?(node[:instance_role])
     
     # create /data/nginx/servers/#{app[:name]}.ssl.custom.conf
     conf_file = "/data/nginx/servers/#{app[:name]}.ssl.custom.conf"
+    
+    # create include file
+    # /etc/nginx/servers/#{app[:name]}/custom.ssl.conf
+    inc_file = "/data/nginx/servers/#{app[:name]}/custom.ssl.conf"
 
     if File.exist?("/data/nginx/ssl/#{app[:name]}.crt") && File.exist?("/data/nginx/ssl/#{app[:name]}.key")
       template conf_file do
@@ -27,9 +31,13 @@ if ['solo', 'app_master', 'app', 'util'].include?(node[:instance_role])
           :app_type => app[:app_type],
         })
       end
+      
+      template inc_file do
+      end
     else
       if File.exist?(conf_file)
         File.delete conf_file
+        File.delete inc_file
       end
     end
   end
