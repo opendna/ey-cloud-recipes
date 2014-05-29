@@ -33,6 +33,10 @@ if ['solo', 'app_master', 'app', 'util'].include?(node[:instance_role])
       end
       
       template inc_file do
+        source 'custom.ssl.conf'
+        owner node[:users][0][:username]
+        group node[:users][0][:username]
+        mode 0644
       end
     else
       if File.exist?(conf_file)
