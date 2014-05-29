@@ -63,5 +63,5 @@ server {
   if (-f $document_root/system/maintenance.html) { return 503; }
     try_files  $uri $uri/index.html $uri.html @app_<%= @app_name %>ssl;
   }
-  include /etc/nginx/servers/<%= @app_name %>/custom.ssl.conf;
+  # include /etc/nginx/servers/<%= @app_name %>/custom.ssl.conf;
 }
