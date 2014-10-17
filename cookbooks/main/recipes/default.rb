@@ -55,7 +55,7 @@ include_recipe "octopus"
 
 #uncomment to install specified packages
 # You must add your packages to packages/attributes/packages.rb
-#require_recipe "packages"
+require_recipe "packages"
 
 #uncomment to run the exim::auth recipe
 #include_recipe "exim::auth"
