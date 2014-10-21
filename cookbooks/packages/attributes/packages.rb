@@ -9,4 +9,8 @@
 # default[:packages] = [{:name => "app-misc/wkhtmltopdf-bin", :version => "0.10.0_beta5"},
 #                        {:name => "dev-util/lockrun", :version => "2-r1"}]
 
-default[:packages] = [{:name => "net-libs/nodejs", :version => "0.10.28"}]
+default[:packages] =
+  [
+    {:name => "net-libs/nodejs", :version => "0.10.28"},
+    {:name => "media-gfx/jpegoptim", :version => "1.4.1"},
+  ]
