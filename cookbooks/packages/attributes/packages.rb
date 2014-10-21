@@ -12,5 +12,5 @@
 default[:packages] =
   [
     {:name => "net-libs/nodejs", :version => "0.10.28"},
-    {:name => "media-gfx/jpegoptim", :version => "1.4.1"},
+    {:name => "media-gfx/jpegoptim", :version => "1.2.4"},
   ]
