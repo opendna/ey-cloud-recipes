@@ -13,6 +13,4 @@ default[:packages] =
   [
     {:name => "net-libs/nodejs", :version => "0.10.28"},
     {:name => "media-gfx/jpegoptim", :version => "1.2.4"},
- 
-     {:name => "media-gfx/wkhtmltopdf-bin", :version => "0.12.1"},
- ]
+  ]
