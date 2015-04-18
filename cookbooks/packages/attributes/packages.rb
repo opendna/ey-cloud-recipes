@@ -15,4 +15,5 @@ default[:packages] =
     {:name => "media-gfx/jpegoptim", :version => "1.2.4"},
 
     {:name => "media-gfx/wkhtmltopdf-bin", :version => "0.12.1"},
+    {:name => "media-fonts/ja-ipafonts", :version => "003.03"},
   ]
