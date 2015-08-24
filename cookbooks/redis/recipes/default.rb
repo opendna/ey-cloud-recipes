@@ -3,8 +3,8 @@
 # Recipe:: default
 #
 
-if ['util'].include?(node[:instance_role])
-  if node[:name] == 'redis'
+# if ['util'].include?(node[:instance_role])
+#   if node[:name] == 'redis'
 
     sysctl "Enable Overcommit Memory" do
       variables 'vm.overcommit_memory' => 1
@@ -72,25 +72,25 @@ if ['util'].include?(node[:instance_role])
     execute "monit reload" do
       action :run
     end
-  end
-end
+#   end
+# end
 
-if ['solo', 'app', 'app_master', 'util'].include?(node[:instance_role])
-  instances = node[:engineyard][:environment][:instances]
-  redis_instance = (node[:instance_role][/solo/] && instances.length == 1) ? instances[0] : instances.find{|i| i[:name].to_s[/redis/]}
+# if ['solo', 'app', 'app_master', 'util'].include?(node[:instance_role])
+#   instances = node[:engineyard][:environment][:instances]
+#   redis_instance = (node[:instance_role][/solo/] && instances.length == 1) ? instances[0] : instances.find{|i| i[:name].to_s[/redis/]}
 
-  if redis_instance
-    ip_address = `ping -c 1 #{redis_instance[:private_hostname]} | awk 'NR==1{gsub(/\\(|\\)/,"",$3); print $3}'`.chomp
-    host_mapping = "#{ip_address} redis_instance"
+#   if redis_instance
+#     ip_address = `ping -c 1 #{redis_instance[:private_hostname]} | awk 'NR==1{gsub(/\\(|\\)/,"",$3); print $3}'`.chomp
+#     host_mapping = "#{ip_address} redis_instance"
 
-    execute "Remove existing redis_instance mapping from /etc/hosts" do
-      command "sudo sed -i '/redis_instance/d' /etc/hosts"
-      action :run
-    end
+#     execute "Remove existing redis_instance mapping from /etc/hosts" do
+#       command "sudo sed -i '/redis_instance/d' /etc/hosts"
+#       action :run
+#     end
 
-    execute "Add redis_instance mapping to /etc/hosts" do
-      command "sudo echo #{host_mapping} >> /etc/hosts"
-      action :run
-    end
-  end
-end
+#     execute "Add redis_instance mapping to /etc/hosts" do
+#       command "sudo echo #{host_mapping} >> /etc/hosts"
+#       action :run
+#     end
+#   end
+# end
