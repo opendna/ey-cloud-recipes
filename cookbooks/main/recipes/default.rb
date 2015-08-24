@@ -49,7 +49,7 @@ include_recipe "timezone"
 
 #uncomment to install specified packages
 # You must add your packages to packages/attributes/packages.rb
-#require_recipe "packages"
+require_recipe "packages"
 
 #uncomment to run the exim::auth recipe
 #include_recipe "exim::auth"
@@ -104,7 +104,7 @@ include_recipe "timezone"
 # To install a Jenkins environment, uncomment below
 # include_recipe "jenkins"
 
-include_recipe "eventmachine"
+# include_recipe "eventmachine"
 
 #enable Extension modules for a given Postgresql database
 # if ['solo','db_master', 'db_slave'].include?(node[:instance_role])
