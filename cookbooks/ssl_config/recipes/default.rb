@@ -9,13 +9,23 @@ if ['solo', 'app_master', 'app', 'util'].include?(node[:instance_role])
 
   # for each application
   node[:engineyard][:environment][:apps].each do |app|
-    
+
+    http_file = "/data/nginx/http-custom.conf"
+
     # create /data/nginx/servers/#{app[:name]}.ssl.custom.conf
     conf_file = "/data/nginx/servers/#{app[:name]}.ssl.custom.conf"
     
     # create include file
     # /etc/nginx/servers/#{app[:name]}/custom.ssl.conf
     inc_file = "/data/nginx/servers/#{app[:name]}/custom.ssl.conf"
+
+    # http-custom.conf作成
+    template http_file do
+      source 'http-custom.conf'
+      owner node[:users][0][:username]
+      group node[:users][0][:username]
+      mode 0644
+    end
 
     if File.exist?("/data/nginx/ssl/#{app[:name]}.crt") && File.exist?("/data/nginx/ssl/#{app[:name]}.key")
       template conf_file do
