@@ -60,7 +60,7 @@ server {
   }
 
   location / {
-  limit_req zone=limit_req_by_ip burst=20 nodelay;
+  #limit_req zone=limit_req_by_ip burst=20 nodelay;
   if (-f $document_root/system/maintenance.html) { return 503; }
     try_files  $uri $uri/index.html $uri.html @app_<%= @app_name %>ssl;
   }

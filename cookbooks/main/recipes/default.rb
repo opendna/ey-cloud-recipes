@@ -4,7 +4,7 @@ include_recipe "timezone"
 include_recipe "ssl_config"
 
 # for rails, database master/slave
-include_recipe "octopus"
+include_recipe "database"
 
 #execute "testing" do
 #  command %Q{
