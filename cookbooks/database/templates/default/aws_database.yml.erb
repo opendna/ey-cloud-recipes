@@ -1,0 +1,13 @@
+<%= @environment %>:
+  adapter: mysql2
+  encoding: utf8mb4
+  charset: utf8mb4
+  collation: utf8mb4_general_ci
+  reconnect: false
+  pool: 5
+  database: <%= @database %>
+  host: stg-bennavi-cluster.cluster-crjpbbgl0i3d.ap-northeast-1.rds.amazonaws.com
+  username: deploy
+  password: <%= @password %>
+  variables:
+    time_zone: Asia/Tokyo
