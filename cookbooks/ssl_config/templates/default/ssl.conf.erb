@@ -13,7 +13,7 @@ server {
   ssl_prefer_server_ciphers on;
   ssl_protocols TLSv1.2;
   ssl_ciphers 'HIGH !aNULL !eNULL !kECDH !DSS !MD5 !EXP !PSK !SRP !CAMELLIA !SEED !RSA';
-  
+
   client_max_body_size 100M;
   
   root /data/<%= @app_name %>/current/public;
