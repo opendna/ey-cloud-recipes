@@ -11,8 +11,8 @@ server {
   ssl_certificate /data/nginx/ssl/<%= @app_name %>.crt;
   ssl_certificate_key /data/nginx/ssl/<%= @app_name %>.key;
   ssl_prefer_server_ciphers on;
-  ssl_protocols  SSLv3 TLSv1;
-  ssl_ciphers ECDHE-RSA-AES256-SHA384:AES256-SHA256:RC4:HIGH:!MD5:!aNULL:!EDH:!AESGCM;
+  ssl_protocols TLSv1.2;
+  ssl_ciphers 'HIGH !aNULL !eNULL !kECDH !DSS !MD5 !EXP !PSK !SRP !CAMELLIA !SEED !RSA';
   
   client_max_body_size 100M;
   
